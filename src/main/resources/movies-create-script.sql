@@ -37,13 +37,14 @@ DESCRIBE directors;
 CREATE TABLE IF NOT EXISTS movie_genre (
     movie_id INT unsigned NOT NULL,
     genre_id INT unsigned NOT NULL,
+    id INT not null,
     foreign key (movie_id) references Movies (id),
     foreign key (genre_id) references movie_genre (id)
 );
 DESCRIBE movie_genre;
 
 CREATE TABLE IF NOT EXISTS actors (
-    in INT unsigned NOT NULL,
+    id INT unsigned NOT NULL,
     name VARCHAR(255) NOT NULL
 );
 DESCRIBE actors;
