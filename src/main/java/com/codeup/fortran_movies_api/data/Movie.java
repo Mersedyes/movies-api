@@ -6,14 +6,7 @@ import javax.persistence.*;
 @Table(name = "movies")
 public class Movie {
     @Id
-    @GeneratedValue(strategy = GenerationType.Identity)
-    private int id;
-
-    public int getId() { //why?
-        return 0;
-    }
-}
-public class Movie {
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String title;
     private String year;
@@ -24,47 +17,47 @@ public class Movie {
     private String genre;
     private String plot;
 
-    public Movie(int id, String title, String year, String director, String actors, String imdbId, String movieser, String genre, String plot) {
-        this.id = id;
-        this.title = title;
-        this.year = year;
+
+    public Movie( int id, String title, String year, String director, String actors, String imdbId, String
+        movieser, String genre, String plot){
+            this.id = id;
+            this.title = title;
+            this.year = year;
 //        this.director = director;
 //        this.actors = actors;
 //        this.imdbId = imdbId;
 //        this.movieser = movieser;
 //        this.genre = genre;
-        this.plot = plot;
-    }
+            this.plot = plot;
+        }
 
-    //public Movie(int id, String pulp_fiction, String year, String quentin_tarantino, String actors, String imdbId, String movieser) {
-   // }
 
-    public Movie(){
-    }
+    public Movie() {
+        }
 
-    public int getId() {
-        return id;
-    }
+        public int getId () {
+            return id;
+        }
 
-    public void setId(int id) {
-        this.id = id;
-    }
+        public void setId ( int id){
+            this.id = id;
+        }
 
-    public String getTitle() {
-        return title;
-    }
+        public String getTitle () {
+            return title;
+        }
 
-    public void setTitle(String title) {
-        this.title = title;
-    }
+        public void setTitle (String title){
+            this.title = title;
+        }
 
-    public String getYear() {
-        return year;
-    }
+        public String getYear () {
+            return year;
+        }
 
-    public void setYear(String year) {
-        this.year = year;
-    }
+        public void setYear (String year){
+            this.year = year;
+        }
 
 //    public String getDirector() {
 //        return director;
@@ -106,24 +99,24 @@ public class Movie {
 //        this.genre = genre;
 //    }
 
-    public String getPlot() {
-        return plot;
-    }
+        public String getPlot () {
+            return plot;
+        }
 
-    public void setPlot(String plot) {
-        this.plot = plot;
-    }
+        public void setPlot (String plot){
+            this.plot = plot;
+        }
 
-    @Override
-    public String toString() {
-        return "Movie{" +
-                "id=" + id +
-                ", title='" + title + '\'' +
-                ", year='" + year + '\'' +
+        @Override
+        public String toString () {
+            return "Movie{" +
+                    "id=" + id +
+                    ", title='" + title + '\'' +
+                    ", year='" + year + '\'' +
 //                ", director='" + director + '\'' +
 //                ", actors='" + actors + '\'' +
 //                ", genre='" + genre + '\'' +
-                ", plot='" + plot + '\'' +
-                '}';
-    }
+                    ", plot='" + plot + '\'' +
+                    '}';
+        }
 }
