@@ -1,6 +1,6 @@
-package web;
+package com.codeup.fortran_movies_api.web;
 
-import data.Movie;
+import com.codeup.fortran_movies_api.data.Movie;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -8,7 +8,7 @@ import java.util.List;
 
 @CrossOrigin
 @RestController
-@RequestMapping("/api/movies")
+@RequestMapping(value="/api/movies", headers="Accept=application/json")
 public class MoviesController {
 
         // Let's set up a temporary backing field to give us a list of movies to work with.
@@ -36,8 +36,6 @@ public class MoviesController {
                         .orElse(null); // prevent errors by returning null... not the greatest practice, but it'll do for now
         }
 
-        @GetMapping("{id}")
-        public
         @PostMapping("many")
         public void create(@RequestBody List<Movie> movies){
                 // add to our movies list (fake db)

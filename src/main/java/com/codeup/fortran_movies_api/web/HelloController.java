@@ -1,4 +1,4 @@
-package web;
+package com.codeup.fortran_movies_api.web;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
