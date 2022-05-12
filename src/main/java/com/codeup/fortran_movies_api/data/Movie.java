@@ -1,8 +1,12 @@
 package com.codeup.fortran_movies_api.data;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
+@Table(name = "movies")
 public class Movie {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -10,6 +14,18 @@ public class Movie {
     private String title;
     private String year;
     private String plot;
+    private String director;
+    private String poster;
+    private String rating;
+    @ManyToOne
+    @JsonIgnoreProperties("directedMovies")
+
+    // TODO: We need to defined the same many-to-many relationship, but from the Movie side (with a little less annotation fun)
+    @ManyToMany(mappedBy = "movies")
+    @JsonIgnoreProperties("movies")
+
+    private List<Genres> genres;
+
 
 
     public Movie( int id, String title, String year, String director, String actors, String imdbId, String
