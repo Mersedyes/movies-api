@@ -3,18 +3,12 @@ package com.codeup.fortran_movies_api.data;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "movies")
 public class Movie {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
     private String title;
     private String year;
-    private String director;
-    private String actors;
-    private String imdbId;
-    private String movieser;
-    private String genre;
     private String plot;
 
 
