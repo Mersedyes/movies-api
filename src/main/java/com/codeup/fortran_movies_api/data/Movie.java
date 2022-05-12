@@ -13,32 +13,28 @@ public class Movie {
     private int id;
     private String title;
     private String year;
-    private String plot;
-    private String director;
-    private String poster;
-    private String rating;
     @ManyToOne
     @JsonIgnoreProperties("directedMovies")
+    private Director director;
+    private String plot;
+    private String poster;
+    private String rating;
 
     // TODO: We need to defined the same many-to-many relationship, but from the Movie side (with a little less annotation fun)
     @ManyToMany(mappedBy = "movies")
     @JsonIgnoreProperties("movies")
 
-    private List<Genres> genres;
+    private List<Genre> genres;
 
 
 
-    public Movie( int id, String title, String year, String director, String actors, String imdbId, String
-        movieser, String genre, String plot){
+    public Movie( int id, String title, String year, String plot, String poster, String rating){
             this.id = id;
             this.title = title;
             this.year = year;
-//        this.director = director;
-//        this.actors = actors;
-//        this.imdbId = imdbId;
-//        this.movieser = movieser;
-//        this.genre = genre;
             this.plot = plot;
+            this.poster = poster;
+            this.rating = rating;
         }
 
 
@@ -69,47 +65,31 @@ public class Movie {
             this.year = year;
         }
 
-//    public String getDirector() {
-//        return director;
-//    }
-//
-//    public void setDirector(String director) {
-//        this.director = director;
-//    }
-//
-//    public String getActors() {
-//        return actors;
-//    }
-//
-//    public void setActors(String actors) {
-//        this.actors = actors;
-//    }
-//
-//    public String getImdbId() {
-//        return imdbId;
-//    }
-//
-//    public void setImdbId(String imdbId) {
-//        this.imdbId = imdbId;
-//    }
-//
-//    public String getMovieser() {
-//        return movieser;
-//    }
-//
-//    public void setMovieser(String movieser) {
-//        this.movieser = movieser;
-//    }
-//
-//    public String getGenre() {
-//        return genre;
-//    }
-//
-//    public void setGenre(String genre) {
-//        this.genre = genre;
-//    }
+    public Director getDirector() {
+        return director;
+    }
 
-        public String getPlot () {
+    public void setDirector(Director director) {
+        this.director = director;
+    }
+
+    public String getPoster() {
+        return poster;
+    }
+
+    public void setPoster(String poster) {
+        this.poster = poster;
+    }
+
+    public String getRating() {
+        return rating;
+    }
+
+    public void setRating(String rating) {
+        this.rating = rating;
+    }
+
+    public String getPlot () {
             return plot;
         }
 
@@ -117,16 +97,26 @@ public class Movie {
             this.plot = plot;
         }
 
-        @Override
-        public String toString () {
+    // TODO: GETTERS!
+
+    public List<Genre> getGenres() {
+        return genres;
+    }
+
+    public void setGenres(List<Genre> genres) {
+        this.genres = genres;
+    }
+
+    @Override
+        public String toString() {
             return "Movie{" +
                     "id=" + id +
                     ", title='" + title + '\'' +
                     ", year='" + year + '\'' +
-//                ", director='" + director + '\'' +
-//                ", actors='" + actors + '\'' +
-//                ", genre='" + genre + '\'' +
+                    ", director=" + Director.getName() + '\''+
                     ", plot='" + plot + '\'' +
+                    ", poster='" + poster + '\'' +
+                    ", rating='" + rating + '\'' +
                     '}';
         }
 }
