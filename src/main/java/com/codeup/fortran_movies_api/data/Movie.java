@@ -108,15 +108,16 @@ public class Movie {
     }
 
     @Override
-        public String toString() {
-            return "Movie{" +
-                    "id=" + id +
-                    ", title='" + title + '\'' +
-                    ", year='" + year + '\'' +
-                    ", director=" + Director.getName() + '\''+
-                    ", plot='" + plot + '\'' +
-                    ", poster='" + poster + '\'' +
-                    ", rating='" + rating + '\'' +
-                    '}';
-        }
+    public String toString() {
+        return "Movie{" +
+                "id=" + id +
+                ", title='" + title + '\'' +
+                ", year='" + year + '\'' +
+                ", director=" + director +
+                ", plot='" + plot + '\'' +
+                ", poster='" + poster + '\'' +
+                ", rating='" + rating + '\'' +
+                ", genres=" + genres +
+                '}';
+    }
 }

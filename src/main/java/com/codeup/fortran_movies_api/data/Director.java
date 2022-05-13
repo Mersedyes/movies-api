@@ -1,7 +1,6 @@
 package com.codeup.fortran_movies_api.data;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import nonapi.io.github.classgraph.json.Id;
 
 import javax.persistence.*;
 import java.util.List;
@@ -37,7 +36,7 @@ public class Director {
         this.id = id;
     }
 
-    public static String getName() {
+    public String getName() {
         return name;
     }
 
