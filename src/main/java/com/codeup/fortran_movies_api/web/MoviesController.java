@@ -1,15 +1,14 @@
 package com.codeup.fortran_movies_api.web;
 
-import com.codeup.fortran_movies_api.data.Director;
-import com.codeup.fortran_movies_api.data.DirectorsRepository;
-import com.codeup.fortran_movies_api.data.Movie;
-import com.codeup.fortran_movies_api.data.MovieRepository;
+import com.codeup.fortran_movies_api.data.*;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @CrossOrigin
 @RestController
@@ -27,8 +26,22 @@ public class MoviesController {
     // TODO: put the expected path out to the side of the method annotation
     //  -> this helps to keep track so we don't have to guess if methods conflict on the same path
     @GetMapping("all") // /api/movies/all
-    public List<Movie> getAll() {
-        return movieRepository.findAll();
+    public List<Movie_DTO> getAll() {
+        List<Movie> MovieList = movieRepository.findAll(); //getting all the movies from the database
+        List<Movie_DTO> Movie_DTO_List = new ArrayList<>(); // created a new movie object
+        for(Movie movie : MovieList){
+            //get all the information from the database and send it to the array of Movie list
+            Movie_DTO_List.add(new Movie_DTO(
+            movie.getId(),
+            movie.getTitle(),
+            movie.getYear(),
+            movie.getPlot(),
+            movie.getPoster(),
+            movie.getRating(),
+            movie.getDirector().getName(),
+            movie.getGenres().stream().map(Genre::getName).collect(Collectors.joining(", "))));
+        }
+        return Movie_DTO_List;
     }
 
     @GetMapping("{id}")
