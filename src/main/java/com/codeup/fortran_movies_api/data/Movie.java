@@ -26,6 +26,8 @@ public class Movie {
     private List<Genre> genres;
 
 
+    public Movie() {
+    }
 
     public Movie( int id, String title, String year, String plot, String poster, String rating){
             this.id = id;
@@ -36,11 +38,12 @@ public class Movie {
             this.rating = rating;
         }
 
+    public Movie(String title, String year, String plot, String poster, String rating) {
 
-    public Movie() {
-        }
+    }
 
-        public int getId () {
+
+    public int getId () {
             return id;
         }
 

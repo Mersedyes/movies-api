@@ -78,8 +78,8 @@ public class MoviesController {
                 movieDto.getYear(),
                 movieDto.getPlot(),
                 movieDto.getPoster(),
-                movieDto.getRating();
-        )
+                movieDto.getRating()
+        );
 
         LIST directorsInDb = (LIST) directorsRepository.findByName(movieDto.getDirector());
         if(((List<?>) directorsInDb).isEmpty()){
