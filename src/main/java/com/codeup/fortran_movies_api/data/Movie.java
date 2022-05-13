@@ -23,7 +23,6 @@ public class Movie {
     // TODO: We need to defined the same many-to-many relationship, but from the Movie side (with a little less annotation fun)
     @ManyToMany(mappedBy = "movies")
     @JsonIgnoreProperties("movies")
-
     private List<Genre> genres;
 
 

@@ -28,6 +28,10 @@ public class Director {
     public Director(){
     }
 
+    public Director(String director) {
+
+    }
+
     public int getId() {
         return id;
     }
